@@ -1,0 +1,92 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center content and headings on the screen */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c1d8e1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Center content vertically on the screen */
+}
+
+h1 {
+    color: #333;
+    font-size: 2em; /* Larger font size for h1 */
+    margin-bottom: 20px; /* More spacing below h1 */
+}
+
+/* Styles for result container */
+.result-container {
+    border: 2px solid #007BFF; /* Noticeable border */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px; /* Rounder container edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333; /* Text color */
+    width: 400px; /* Larger result container width */
+    margin: 20px auto; /* Center the div horizontally with spacing */
+}
+
+.result-container h2 {
+    font-size: 1.8em; /* Larger font size for h2 */
+    margin-bottom: 15px; /* More spacing below the heading */
+}
+
+.result-container p {
+    font-size: 1.2em; /* Larger font size for text inside result container */
+    margin-bottom: 10px;
+}
+
+/* Modern button styles */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: 2px solid #000; /* Black border */
+    padding: 15px 30px; /* Larger padding for larger button */
+    border-radius: 30px; /* Curved button edges */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-size: 1.4em; /* Larger font size for buttons */
+    margin-top: 15px; /* Add spacing between buttons and other elements */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Larger and more spaced out input fields and container */
+.input-container {
+    border: 2px solid #007BFF; /* Noticeable border */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px; /* Rounder container edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333; /* Text color */
+    width: 400px; /* Larger container width */
+    margin: 20px auto; /* Center the container horizontally with spacing */
+}
+
+.input-container label {
+    font-size: 1.2em; /* Larger font size for labels */
+    display: block; /* Make labels block-level for proper spacing */
+    margin-bottom: 10px;
+}
+
+.input-container input[type="number"] {
+    padding: 15px; /* Larger padding for input fields */
+    margin: 10px 0; /* More spacing around input fields */
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}

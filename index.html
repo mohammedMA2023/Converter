@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - V2</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Unit Converter - V2</h1>
+    
+    <form class="result-container" name="form1" id="form1" action="converter.php" method="post">
+        <label for="unitSelection">Select Conversion:</label>
+        <select id="unitSelection" name="unitSelection" onchange="changeText(this)">
+            <option value="metersToFeetAndInches">Meters to Feet and Inches</option>
+            <option value="feetAndInchesToMeters">Feet and Inches to Meters</option>
+            <option value="kilometersToMiles">Kilometers to Miles</option>
+            <option value="milesToKilometers">Miles to Kilometers</option>
+            <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+            <option value="fahrenToCelsius">Celsius to Fahrenheit</option>
+        
+        </select>
+
+        <br>
+        <label id="unitText1" for="input1">Value 1:</label>
+        <div class="btn-group">
+            <button class="btn" onclick="incrementValue(event, 'input1')">+</button>
+            <input type="text" id="input1" name="input1" step="1" min="0" value=0>
+            <input type="hidden" id="conv" name="conv" value="Meters to Feet and Inches">
+
+            <button class="btn" onclick="decrementValue(event, 'input1')">-</button>
+        </div>
+        
+        <br>
+        <div id="secondValueGroup" style="display: none;">
+            <label id="unitText2" for="input2">Value 2:</label>
+            <div class="btn-group">
+                <button class="btn" onclick="incrementValue(event, 'input2')">+</button>
+                <input type="text" id="input2" name="input2" step="1" min="0" value=0>
+
+                <button class="btn" onclick="decrementValue(event, 'input2')">-</button>
+            </div>
+        </div>
+
+        <br><br>
+        <input type="submit" value="Calculate">
+    </form>
+    
+    <script>
+        // Define an array of conversion types that require only one input field
+        const singleInputConversions = [
+            "Meters to Feet and Inches",
+            "Kilometers to Miles",
+            "Miles to Kilometers",
+            "Fahrenheit to Celsius",
+            "Celsius to Fahrenheit"
+        ];
+
+
+        // This will increase the value in any input field that the user can pass input into. 
+
+        function incrementValue(event, inputId) {
+            event.preventDefault();
+            var input = document.getElementById(inputId);
+            var currentValue = parseFloat(input.value);
+            input.value = (currentValue + 1).toFixed(1);
+        }
+
+
+        // This will decrease the value in any input field that the user can pass input into.
+        function decrementValue(event, inputId) {
+            event.preventDefault();
+            var input = document.getElementById(inputId);
+            var currentValue = parseFloat(input.value);
+            input.value = (currentValue - 1).toFixed(1);
+        }
+        // This will process the options the user selects in the conversions dropdown and change the number of input fields on the screen and change the value of the conv input.
+        function changeText(select) {
+            let selectedOption = select.options[select.selectedIndex].text;
+            let unitText1 = document.getElementById("unitText1");
+            let unitText2 = document.getElementById("unitText2");
+            let secondValueGroup = document.getElementById("secondValueGroup");
+            let convInput = document.forms['form1']['conv'];
+
+            unitText1.innerText = "Value 1:";
+            unitText2.innerText = "Value 2:";
+            secondValueGroup.style.display = singleInputConversions.includes(selectedOption) ? "none" : "block";
+
+            // Update the hidden "conv" input with the selected option
+            convInput.value = selectedOption;
+        }
+    </script>
+</body>
+</html>
